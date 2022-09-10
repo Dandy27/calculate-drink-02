@@ -1,5 +1,6 @@
-import 'package:calculate_drink_02/app/core/database/mmigrations/migration.dart';
 import 'package:sqflite_common/sqlite_api.dart';
+
+import 'migration.dart';
 
 class MigrationV2 implements Migration {
   @override

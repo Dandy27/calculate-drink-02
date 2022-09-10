@@ -1,7 +1,7 @@
-import 'mmigrations/migration.dart';
-import 'mmigrations/migration_v1.dart';
-import 'mmigrations/migration_v2.dart';
-import 'mmigrations/migration_v3.dart';
+import 'migrations/migration.dart';
+import 'migrations/migration_v1.dart';
+import 'migrations/migration_v2.dart';
+import 'migrations/migration_v3.dart';
 
 class SqliteMigrationFactory {
   List<Migration> getCreateMigration() => [
