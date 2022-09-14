@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/database/migrations/sqlite_adm_connection.dart';
+import 'core/ui/calculate_drink_ui_config.dart';
 import 'modules/auth/auth_module.dart';
 import 'modules/splash/splash_page.dart';
 
@@ -30,6 +31,7 @@ class _AppWidgetState extends State<AppWidget> {
     return MaterialApp(
       title: 'Calculate Drink Provider',
       initialRoute: '/login',
+      theme: CalculateDrinkUiConfig.theme,
       routes: {...AuthModule().routers},
       home: const SplashPage(),
     );
