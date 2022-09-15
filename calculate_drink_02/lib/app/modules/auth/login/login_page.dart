@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
+import '../../../core/widget/calculate_drink_field.dart';
 import '../../../core/widget/calculate_drink_logo.dart';
 
 class LoginPage extends StatelessWidget {
@@ -29,9 +30,12 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(height: 10),
                         const CalculateDrinkLogo(),
                         const SizedBox(height: 20),
-                        TextFormField(),
+                        const CalculateDrinkField(
+                          label: 'E-mail',
+                        ),
                         const SizedBox(height: 20),
-                        TextFormField(),
+                        const CalculateDrinkField(
+                            label: 'Senha', obscureText: true),
                         const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
