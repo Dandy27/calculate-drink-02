@@ -30,11 +30,11 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(height: 10),
                         const CalculateDrinkLogo(),
                         const SizedBox(height: 20),
-                         CalculateDrinkField(
+                        CalculateDrinkField(
                           label: 'E-mail',
                         ),
                         const SizedBox(height: 20),
-                         CalculateDrinkField(
+                        CalculateDrinkField(
                           label: 'Senha',
                           obscureText: true,
                         ),
@@ -85,7 +85,10 @@ class LoginPage extends StatelessWidget {
                                 children: [
                                   const Text('Não tem conta?'),
                                   TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/register');
+                                    },
                                     child: const Text('Cadastre-se'),
                                   )
                                 ],
