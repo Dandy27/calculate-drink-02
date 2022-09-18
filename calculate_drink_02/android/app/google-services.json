@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "554569829672",
+    "project_id": "calculate-drink-provider",
+    "storage_bucket": "calculate-drink-provider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554569829672:android:e08a82f9cc59aeed69d41d",
+        "android_client_info": {
+          "package_name": "com.example.calculate_drink_02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554569829672-dafmn8h7si15vn480tunutt01vki1vt3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calculate_drink_02",
+            "certificate_hash": "c721f055fca5cedc8b483df92c42add1d9a59cbe"
+          }
+        },
+        {
+          "client_id": "554569829672-nhk2vm00utv75asjks3aa7boluo31b9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKWRjZep0epfQthkImmxVw3bDcHg22dO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554569829672-nhk2vm00utv75asjks3aa7boluo31b9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
