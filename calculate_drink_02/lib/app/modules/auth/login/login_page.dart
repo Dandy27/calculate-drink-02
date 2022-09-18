@@ -30,12 +30,14 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(height: 10),
                         const CalculateDrinkLogo(),
                         const SizedBox(height: 20),
-                        const CalculateDrinkField(
+                         CalculateDrinkField(
                           label: 'E-mail',
                         ),
                         const SizedBox(height: 20),
-                        const CalculateDrinkField(
-                            label: 'Senha', obscureText: true),
+                         CalculateDrinkField(
+                          label: 'Senha',
+                          obscureText: true,
+                        ),
                         const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
