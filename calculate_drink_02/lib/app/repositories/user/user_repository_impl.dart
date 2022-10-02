@@ -4,14 +4,16 @@ import '../../exception/auth_exception.dart';
 import 'user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  FirebaseAuth _firebaseAuth;
+  final FirebaseAuth _firebaseAuth;
   UserRepositoryImpl({required FirebaseAuth firebaseAuth})
       : _firebaseAuth = firebaseAuth;
   @override
   Future<User?> register(String email, String password) async {
     try {
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       return userCredential.user;
     } on FirebaseAuthException catch (e, s) {
       print(e);

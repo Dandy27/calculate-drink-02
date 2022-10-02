@@ -18,9 +18,7 @@ class CalculateDrinkPage extends StatelessWidget {
     return MultiProvider(
       providers: _bindings ??
           [
-            Provider(
-              create: (_) => Object(),
-            ),
+            Provider(create: (_) => Object()),
           ],
       child: Builder(builder: (context) => _page(context)),
     );

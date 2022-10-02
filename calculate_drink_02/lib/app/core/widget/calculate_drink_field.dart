@@ -27,6 +27,8 @@ class CalculateDrinkField extends StatelessWidget {
       valueListenable: obscureTextVN,
       builder: (_, obscureTexValue, child) {
         return TextFormField(
+          validator: validator,
+          controller: controller,
           decoration: InputDecoration(
               labelText: label,
               labelStyle: const TextStyle(fontSize: 15),
