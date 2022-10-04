@@ -11,13 +11,13 @@ class Messages {
 
   void showError(String message) => _showMessage(message, Colors.red);
 
-  void showInfo(String message) => _showMessage(message,context.primaryColor);
+  void showInfo(String message) => _showMessage(message, context.primaryColor);
 
   void _showMessage(String message, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: context.primaryColor,
+        backgroundColor: Colors.red,
       ),
     );
   }

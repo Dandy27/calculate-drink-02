@@ -1,11 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:provider/provider.dart';
+import 'package:validatorless/validatorless.dart';
 
+import '../../../core/notifier/default_listener_notifier.dart';
 import '../../../core/widget/calculate_drink_field.dart';
 import '../../../core/widget/calculate_drink_logo.dart';
+import '../login_controller.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailEC = TextEditingController();
+  final _passwordEC = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    DefaultListenerNotifier(changeNotifier: context.read<LoginController>())
+        .listener(
+      context: context,
+      successCallback: (notifier, listenerInstance) {
+        print('Login efetuado com sucesso');
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +49,7 @@ class LoginPage extends StatelessWidget {
                     vertical: 20,
                   ),
                   child: Form(
+                    key: _formKey,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -32,11 +58,22 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(height: 20),
                         CalculateDrinkField(
                           label: 'E-mail',
+                          controller: _emailEC,
+                          validator: Validatorless.multiple([
+                            Validatorless.required('E-mail obrigatório'),
+                            Validatorless.email('E-mail inválido')
+                          ]),
                         ),
                         const SizedBox(height: 20),
                         CalculateDrinkField(
                           label: 'Senha',
                           obscureText: true,
+                          controller: _passwordEC,
+                          validator: Validatorless.multiple([
+                            Validatorless.required('Senha obrigatória'),
+                            Validatorless.min(
+                                6, 'Senha deve conter pelo menos 6 caracteres')
+                          ]),
                         ),
                         const SizedBox(height: 10),
                         Row(
@@ -47,7 +84,17 @@ class LoginPage extends StatelessWidget {
                                 child: const Text('Esqueceu a sua senha?')),
                             ElevatedButton(
                               // ignore: sort_child_properties_last
-                              onPressed: () {},
+                              onPressed: () {
+                                final formValid =
+                                    _formKey.currentState?.validate() ?? false;
+                                if (formValid) {
+                                  var email = _emailEC.text;
+                                  var password = _passwordEC.text;
+                                  context
+                                      .read<LoginController>()
+                                      .login(email, password);
+                                }
+                              },
                               style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20))),
