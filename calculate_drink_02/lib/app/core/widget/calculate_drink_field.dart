@@ -9,6 +9,7 @@ class CalculateDrinkField extends StatelessWidget {
   final ValueNotifier<bool> obscureTextVN;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
+  final FocusNode? focusNode;
   CalculateDrinkField({
     Key? key,
     required this.label,
@@ -16,6 +17,7 @@ class CalculateDrinkField extends StatelessWidget {
     this.obscureText = false,
     this.controller,
     this.validator,
+    this.focusNode,
   })  : assert(obscureText == true ? suffixIconButton == null : true,
             'ObscureText não pode ser enviado em conjunto com suffixIconButton'),
         obscureTextVN = ValueNotifier(obscureText),
@@ -27,8 +29,9 @@ class CalculateDrinkField extends StatelessWidget {
       valueListenable: obscureTextVN,
       builder: (_, obscureTexValue, child) {
         return TextFormField(
-          validator: validator,
           controller: controller,
+          validator: validator,
+          focusNode: focusNode,
           decoration: InputDecoration(
               labelText: label,
               labelStyle: const TextStyle(fontSize: 15),
